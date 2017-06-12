@@ -1,0 +1,58 @@
+<div class="row">
+<div class="col s6" >
+    <h3>{{title}}</h3>
+</div>
+
+<div class="col s6" ><button class="blue btn waves-effect waves-light" ng-click="listar()" > Actualizar listado</button>
+</div>
+
+</div>
+
+<table class="striped" >
+  <thead  > 
+          <tr> 
+              <th>#</th>
+             
+              <th>Proyecto</th> 
+             
+                <th>Motivación</th> 
+               <th>Experiencia</th> 
+                 <th>Link trabajos</th> 
+
+             
+              <th>fecha de inscripción</th>
+          </tr> 
+  </thead>  
+   <tr ng-repeat='p in postulantes'>
+              <td>  <h4>{{ $index + 1}}</h4>    </td>
+             <td  > 
+             <h5>"{{p.project_name}}"</h5> 
+             <br>Encargado: {{ p.name }} {{ p.last_name }} 
+             <br>Correo: {{ p.email }} 
+               <br>Telefono: {{ p.phone }} 
+             </td>
+                    
+ 
+               <td> {{ p.motivations }} </td>
+                <td> {{ p.experience }} </td>
+                  <td> 
+                   <a target="_blank" href="{{ p.music_work_url }}">{{ p.music_work_url }}  <br>   </a>
+                     <a target="_blank" href="{{ p.music_work_url2 }}">{{ p.music_work_url2 }} <br> </a>
+                    <a target="_blank" href="{{ p.music_work_url3 }}">{{ p.music_work_url3 }} <br> </a>
+                  </td>
+             
+              
+             <td>{{ p.created }}  </td>
+    </tr> 
+
+
+</table>
+
+<style>
+  td{
+    vertical-align: text-top;
+  }
+
+
+</style>
+

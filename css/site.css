@@ -1,0 +1,13 @@
+ 
+#main-view{
+/* margin-left:5%;
+ margin-right: 5%;
+ */
+background-image: url('../img/cover.jpg')  ;
+height: 1000px;
+   background-position: center center;
+    background-size: cover;
+     float: none;
+    display: block;
+    width: 100%;
+}
