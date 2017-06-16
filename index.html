@@ -3,24 +3,25 @@
 <head>
 
     <meta charset="utf-8">
-    <title>PressNote</title>
+    <title>Decima sinfonia</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="música decima región sonido ">
+    <meta name="description" content="música decima región sonido sur rock chile tokata ">
     <meta name="author" content="Francisco Ruiz">
         <!--Import materialize.css-->
-            <link href="vendor/materialize/css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css"/>  </link>
-             <link href="css/site.css"   rel="stylesheet" type="text/css"/>  </link>
-      
-            <meta content="width=device-width, initial-scale=1.0" name="viewport"/> </meta>
+    <link href="vendor/materialize/css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css"/>  </link>
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="css/site.css"   rel="stylesheet" type="text/css"/>  </link>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/> </meta>
            
            
     <title>X sinfonia</title>
 </head>
-<body>
- <div ng-include="'menu.html'" scope="" onload="" ></div>
-<hr>
-        <div id="main-view" class="section no-pad-bot" >   
+<body id="main-view">
+ 
+ 
+        <div style="margin-left:5%; margin-right: 5%;" class="section no-pad-bot" >   
                 <!--Aqui va las vistas-->
                  <div ng-view></div>
         </div>
@@ -28,35 +29,38 @@
 </body>
 
 
-<hr>
+ 
     <!-- Footer -->
     <footer>
     
         <div class="container text-center">
             <p>Copyright &copy; <a target="_blank" href="https://github.com/godzukison">gdzk</a>  2017</p>
         </div>
-
-
+    </footer>
+<script src="https://apis.google.com/js/client.js?onload=init"></script>
     <script src="vendor/jquery/jquery.js"></script>
     <script src="vendor/angular/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="vendor/angular/angular-route.min.js"></script>
     <script src="vendor/angular/main.js"></script>
+          <script src="services/capsService.js"></script>
+
   
     <script src="controllers/notasCtrl.js"></script>
     <script src="controllers/detalleNotaCtrl.js"></script>
-
     <script src="controllers/actividadesCtrl.js"></script>
     <script src="controllers/detalleActividadCtrl.js"></script>
-
-        <script src="controllers/capitulosCtrl.js"></script>
+    <script src="controllers/capitulosCtrl.js"></script>
     <script src="controllers/detalleCapituloCtrl.js"></script>
-    
+    <script src="controllers/homeCtrl.js"></script>
+    <script src="controllers/contactCtrl.js"></script>  
     <script src="controllers/homeCtrl.js"></script>
 
-      <script src="controllers/contactCtrl.js"></script>  
+
+
     <script src="vendor/materialize/js/materialize.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="vendor/moment/moment-with-locales.js"></script>
      
-    </footer>
+
 </html>
 
  

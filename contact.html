@@ -1,0 +1,46 @@
+<div ng-include="'menu.html'" scope="" onload="" ></div>
+
+<div class="row">
+	<div class="col m6 s0">
+	<div class="row">
+		<h3 class="white-text" >{{title}}</h3>
+	</div>
+		<div  style="margin-top: 20%" class="row center">
+			<div class="col m2 s3"></div>
+			<div class="col m6 s6">
+					<img class="responsive-img" src="img/logo.png" alt="">
+			</div>
+		</div>
+	</div>
+	<div id="contact-panel" style="margin-top:40px;padding-top: 30px" class="card col m6 s12">
+	<p class="grey-text"  >Comunicate con nosostros</p>
+	<br>
+		<div class="row">
+			 <div class="input-field  ">
+             <input  type="text" id="nombre"    >
+           <label  class="active" for="nombre">Tu Nombre</label>
+          </div>
+		</div>
+		<div class="row">
+			 <div class="input-field  ">
+             <input  type="text" id="correo"  name="correo"  >
+           <label  class="active" for="correo">Tu Correo</label>
+          </div>
+		</div>
+		<div class="row">
+			 <div class="input-field  ">
+            <label class="active" for="ini1">Mensaje<span id="ini1"></span></label>
+            <textarea    class="materialize-textarea"  name="ini1" id="ini1"> </textarea>
+      </div>
+		</div>
+
+		<div class="row">
+		    <div class="input-field  ">
+		        <button  class="btn waves-effect waves-light right blue"  type="button" ng-click="sendContactMail()" > Enviar </button>
+		    </div>
+		  </div>
+
+	</div>
+</div>
+
+ 

@@ -1,38 +1,59 @@
+<div ng-include="'menu.html'" scope="" onload="" ></div>
+ <br>
 
 <div class="row">
-<div class="col s6" >
-    <h3>{{title}}</h3>
+<div class="col m2 "></div>
+		<div class="panel-first col m8 s12">
+			 <p>{{firsttitulo | limitTo:100 }} {{firsttitulo > 100 ? '...' : ''}}  </p>
+			 <iframe center  width="700" height="400" ng-src="{{ firstembed | youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+			 <small>{{firstdescr | limitTo:180 }} {{firstdescr > 180 ? '...' : ''}} </small>
+		</div>
+		<div class="col m2 "></div>
+
 </div>
-
-<div class="col s6" ><button class="blue btn waves-effect waves-light" ng-click="listar()" > Actualizar listado.</button>
-</div>
-
-</div>
-    
-
-<table class="striped" >
-  <thead  > 
-          <tr> 
-              <th>#</th>
-              <th>Arriba</th>
-              <th>Titulo</th> 
-              <th>link</th> 
-              <th>autor</th>
-              <th>fecha de creación</th>
-          </tr> 
-  </thead>  
-   <tr ng-repeat='n in notas'>
-              <td>{{ $index + 1}}  </td>
-
- <td ng-click="changeup()"  ><input ng-model="chk" type="checkbox"  id="{{ n.id }}"  /><label  > {{ n.up }}</label>   </td>
-              
-              <td>{{ n.header }}  </td>
+		
  
-              <td>{{ n.url }}  </td>
-              <td>{{ n.author }}  </td>
-             <td>{{ n.created }}  </td>
-    </tr> 
+<div class="row" >
+	
+	<div ng-repeat='v in videos'  >
+	
+		<div class="panel-capitulo col m4  s12" >
+			 <p >{{v.titulo | limitTo:80 }} {{v.titulo.length > 80 ? '...' : ''}}  </p>
+			 <iframe width="320" height="210" ng-src="{{ v.embed | youtubeEmbedUrl }}" frameborder="0" allowfullscreen></iframe>
+			 <small>{{v.descr | limitTo:180 }} {{v.descr.length > 180 ? '...' : ''}} </small>
+		</div>
+	 
+		 
+	</div>
+	
+</div>  
+
+<script src="https://apis.google.com/js/client.js?onload=init"></script>
+	      
+<style>	
+@media only screen and (max-width: 1026px) {
+    .panel-first {
+        display: none;
+    }
+}
+.panel-first{
+	color:white;
+background-color: rgba(0, 0, 0, 0.69);
+padding: 6px;
+height: 500px;
+}
 
 
-</table>
+.panel-capitulo p, .panel-capitulo small{
+	color:yellow;
+}
+ 
+.panel-capitulo{
+	background-color: rgba(0, 0, 0, 0.69);
+padding: 6px;
 
+height: 380px;
+ margin-bottom: 20px;
+ 	 
+}
+</style>

@@ -1,58 +1,245 @@
-<div class="row">
-<div class="col s6" >
-    <h3>{{title}}</h3>
-</div>
+<div ng-include="'menu.html'" scope="" onload="" ></div>
 
-<div class="col s6" ><button class="blue btn waves-effect waves-light" ng-click="listar()" > Actualizar listado</button>
-</div>
 
-</div>
+<!-- <section   class="carousel-container">
+   //http://www.desarrollolibre.net/blog/tema/206/css/como-crear-un-carrusel-con-css#.WUIZgus1-01
+		<div  id="carousel" style="transform: translateZ(-288px) rotateY(-360deg);">
+		     <figure ng-repeat='a in actividades' style="background-image: url('{{a.imgurl}}')" > <h4>{{a.name}}</h4> </figure>
+	  </div>
+ </section>
+<section id="options" >
+	<p id="navigation">
+	<button id="previous" data-increment="1">prev</button>
+	<button id="next" data-increment="1">next</button>
+</p>
+</section> -->
+<br>
+<div class="row ">
+<div class="col m1 "></div>
 
-<table class="striped" >
-  <thead  > 
-          <tr> 
-              <th>#</th>
-             
-              <th>Proyecto</th> 
-             
-                <th>Motivación</th> 
-               <th>Experiencia</th> 
-                 <th>Link trabajos</th> 
+	<div class="col m6 s12">
+		<div class="row">
+		
+		<h4> {{nextname}} </h4>
+      <small>  {{nextfechah}} en {{nextplace}}</small>
+		</div>
+	
 
-             
-              <th>fecha de inscripción</th>
-          </tr> 
-  </thead>  
-   <tr ng-repeat='p in postulantes'>
-              <td>  <h4>{{ $index + 1}}</h4>    </td>
-             <td  > 
-             <h5>"{{p.project_name}}"</h5> 
-             <br>Encargado: {{ p.name }} {{ p.last_name }} 
-             <br>Correo: {{ p.email }} 
-               <br>Telefono: {{ p.phone }} 
-             </td>
-                    
+		<img class="responsive-img"  src="{{nextimgurl}}" alt="">
  
-               <td> {{ p.motivations }} </td>
-                <td> {{ p.experience }} </td>
-                  <td> 
-                   <a target="_blank" href="{{ p.music_work_url }}">{{ p.music_work_url }}  <br>   </a>
-                     <a target="_blank" href="{{ p.music_work_url2 }}">{{ p.music_work_url2 }} <br> </a>
-                    <a target="_blank" href="{{ p.music_work_url3 }}">{{ p.music_work_url3 }} <br> </a>
-                  </td>
-             
-              
-             <td>{{ p.created }}  </td>
-    </tr> 
+		<p class="white-text" >{{nextdescr}}</p>
+
+	</div>
+		<div class="col m1 "></div>
+    <h5 class="white-text" >Que pasa ...</h5>
+	 <div class="col m4 s12" id="style-2" style="overflow: auto;height:590px">
+
+		<br>
+		<div ng-repeat='a in actividades'  >
+				<div class="row">
+		            <div class="lista-actividades col m12 s12" style="background-image: url('{{a.imgurl}}')" >
+					 	<h5 ng-click="spotlight(a.id)" >{{a.name}}</h5>
+					 	 <hr>
+					  
+					 	<p>{{a.place}}</p>
+					 	<small>  </small>
+						<div class="carbon-date left" >
+						 <div   ><p class="black-text" >{{a.datestarth}}</p></div>
+
+						 </div>
+					 </div>
+				</div>
+		</div>
+	 </div>
+ </div>
+
+  <style>
+
+/*
+ *  STYLE 2
+ */
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+.carbon-date p{
+margin-top: -3px;  
+}
+.carbon-date{
+	    margin-top: -85px;
+    margin-left: -18px;
+	z-index: 1;
+	height: 30px;
+	width: 120px;
+ 
+	background-color: yellow;
+ position:relative;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
+    transform: rotate(-20deg);
+    padding: 5px;
+ 
+}
+.lista-actividades hr{
+	text-align: right;
+	width: 60%;
+}
+.rotate-text{
+
+  text-shadow: -2px 2px 8px rgba(152, 150, 150, 0.87); 
+  margin-top: 80px;
 
 
-</table>
-
-<style>
-  td{
-    vertical-align: text-top;
-  }
+}
 
 
-</style>
+.lista-actividades{
+	z-index: 1;
+ background-position: center center;
+background-size: cover;
+ height: 120px;
+ padding: 10px;
+  filter: grayscale(.8); 
+  text-align: right;
+  margin-bottom: 7px;
+  position:relative
+}
 
+.lista-actividades h5{
+	cursor: pointer;
+	    background-color: black;
+    padding: 5px;
+}
+
+.lista-actividades:hover{
+ 
+  filter: grayscale(.1); 
+}
+
+ 
+
+
+
+ #carousel figure{
+ 	background-position: center center;
+    background-size: cover;
+    opacity: .8;
+    cursor:pointer;
+ }
+ #carousel figure:hover{
+ 	opacity: 1;
+ }
+
+#carousel h3 {
+	color: red;
+	text-shadow: 1px;
+}
+
+   #carousel figure:nth-child(1) {
+              transform: rotateY(   0deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(2) {
+              transform: rotateY(  40deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(3) {
+              transform: rotateY(  80deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(4) {
+              transform: rotateY( 120deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(5) {
+              transform: rotateY( 160deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(6) {
+              transform: rotateY( 200deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(7) {
+              transform: rotateY( 240deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(8) {
+              transform: rotateY( 280deg ) translateZ( 288px );
+    }
+    #carousel figure:nth-child(9) {
+              transform: rotateY( 320deg ) translateZ( 288px );
+    }
+        .carousel-container {
+            perspective: 1100px;
+            width: 210px;
+      height: 140px;
+      position: relative;
+      margin: 0 auto 40px;
+    
+      perspective: 1100px;
+        }
+         #carousel figure {
+         	background-color: yellow;
+      display: block;
+      position: absolute;
+ width: 80%;
+      height: 80%;
+      left: 10px;
+      top: 10px;
+      border: 2px solid rgba(   0, 0, 0, 0.8 );
+      line-height: 116px;
+      color: white;
+      margin: 0;
+    }
+
+          #carousel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+              transform: translateZ( -288px );
+              transform-style: preserve-3d;
+              transition: transform 1s;
+    }
+    #carousel {
+        animation: rotateInY 100s infinite linear;
+    }
+    @keyframes rotateInY {
+	0%   { transform: translateZ(-288px) rotateY(0deg);   }
+	100% { transform: translateZ(-288px) rotateY(360deg);    }
+    }
+    </style>
+
+  <script >
+ 
+/*
+    var init = function() {
+      var carousel = document.getElementById('carousel'),
+          navButtons = document.querySelectorAll('#navigation button'),
+          panelCount = 9,
+          
+          theta = 0,
+          onNavButtonClick = function( event ){
+            var increment = parseInt( event.target.getAttribute('data-increment') );
+            theta += ( 360 / panelCount ) * increment;
+            carousel.style.transform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
+		console.log("theta: ",theta,panelCount,carousel,increment)
+          };
+
+      for (var i=0; i < 2; i++) {
+        navButtons[i].addEventListener( 'click', onNavButtonClick, false);
+      }
+
+    };
+    init();
+  */
+ 
+  </script>

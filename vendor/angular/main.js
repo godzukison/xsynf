@@ -1,4 +1,10 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute' ]);   
+app.filter('youtubeEmbedUrl', function ($sce) {
+    return function(videoId) {
+      return $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + videoId+'?autoplay=0&showinfo=0&controls=0');
+    };
+  });
+
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
@@ -29,7 +35,7 @@ app.config(function($routeProvider) {
     .when('/notas', {
         templateUrl: 'notas.html',
         controller: 'notasCtrl'
-    }).when('/nota/:id', {
+    }).when('/notas/:id', {
         templateUrl: 'nota.html',
         controller: 'detalleNotaCtrl'
     })
@@ -37,6 +43,6 @@ app.config(function($routeProvider) {
         templateUrl: 'contact.html',
         controller: 'contactCtrl'
     }).otherwise({
-        template: '<h3>#404 No encontrado</h3>'
+        templateUrl: 'notfound.html'
     });
 });

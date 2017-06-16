@@ -1,51 +1,32 @@
-  app.controller('historyCtrl', function($scope, $http) {
-      $scope.title = 'Historial de notas';
-    
-      $scope.listar = function() {
-          var notas = {};
-          $http({
-              method: 'GET',
-              url: 'api/listNotes.php',
-          }).then(successCallback, errorCallback);
+function init() {
+    window.initGapi(); // Calls the init function defined on the window
+}
+  app.controller('capitulosCtrl', function($scope, $http, $window, $sce, googleService) {
+      $scope.title = 'Historial de capitulos';
+       $window.initGapi = function() {
+       
+        $scope.listarVideos();
+         $scope.$apply($scope.videos);
+        };
+ 
+      $scope.listarVideos = function() {
+          googleService.googleApiClientReady().then(function (data) {
+          var videos = {} ;
+          $scope.videos = data.items;
+              for (var key in data.items) {
+                  $scope.videos[key].titulo = data.items[key].snippet.title;
+                  $scope.videos[key].embed =  data.items[key].snippet.resourceId.videoId;
+                   $scope.videos[key].descr = data.items[key].snippet.description;
+              }
 
-          function successCallback(response) {
-              $scope.notas = response.data;
-              for (var key in notas) {}
-             // console.log($scope.notas);
-              //console.log(notas);
-          }
-
-          function errorCallback(error) {
-              alert(response.data);
-          }
-      }
-      /*PUBLICAR O DESPUBLICAR NOTA*/
-      $scope.changeup = function() {
-          var updown = {
-              "notaId": this.n.id,
-              "status": (this.n.up == 1) ? 0 : 1,
-          }
-          var serialUpdown = $.param({
-              "updown": JSON.stringify(updown)
-          });
-          $http({
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              method: 'POST',
-              url: 'api/updown_note.php',
-              data: serialUpdown
-          }).then(successCallback, errorCallback);
-
-          function successCallback(response) {
-              // console.log(response.data);
-              $scope.listar();
-          }
-
-          function errorCallback(error) {
-              alert(response.data);
-              $scope.listar();
-          }
-      }
-         $scope.listar();
+            $scope.firsttitulo = data.items[0].snippet.title;
+            $scope.firstembed =  data.items[0].snippet.resourceId.videoId;
+            $scope.firstdescr = data.items[0].snippet.description;
+  
+              console.log($scope.firsttitulo);
+            }, function (error) {
+                console.log('Failed: ' + error)
+            });
+      };
+      $scope.listarVideos();
   });
